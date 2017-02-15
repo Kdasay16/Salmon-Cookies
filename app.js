@@ -1,10 +1,5 @@
 'use strict';
 
-//store hours
-var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-
-
-
 function CookieStore(name, displayName, minCustomers, maxCustomers, avgCookies){
   this.name = name;
   this.displayName = displayName;
@@ -25,25 +20,16 @@ var storeSeattle = new CookieStore('seattle-center', 'Seattle Center', 11, 38, 3
 var storeCapitol = new CookieStore('capitol-hill', 'Capitol Hill',20, 38, 2.3);
 var storeAlki = new CookieStore('alki', 'Alki', 2, 16, 4.6);
 
-// //store 1st & Pike
-// var storeOne = {
-//   name: 'First and Pike',
-//   minCustomers: 23,
-//   maxCustomers: 65,
-//   avgCookieSale: 6.3,
-//   salesPerHour: [],
-//   returnRandom: function(){
-//     return Math.floor(Math.random() * ( this.maxCustomers + 1 - this.minCustomers) + this.minCustomers);
-//   }
-// };
-//
-
 //stores Array
 var stores = [storeOne, storeSeaTac, storeSeattle, storeCapitol, storeAlki];
-// var hourlyCookies = [];
+
+//store hours
+var openHours = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
+//var hourlyCookies = [];
 
 //storeOne.salesPerHour();
-// storeSeaTac.salesPerHour();
+//storeSeaTac.salesPerHour();
 // storeSeattle.salesPerHour();
 // storeCapital.salesPerHour();
 // storeAlki.salesPerHour();
