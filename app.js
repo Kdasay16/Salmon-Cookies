@@ -1,5 +1,11 @@
 'use strict';
 
+var storeOne = new CookieStore('first-and-pike', 'First and Pike', 23, 65, 6.3);
+var storeSeaTac = new CookieStore('seatac-airport', 'Seatac Airport', 3, 24, 1.2);
+var storeSeattle = new CookieStore('seattle-center', 'Seattle Center', 11, 38, 3.7);
+var storeCapitol = new CookieStore('capitol-hill', 'Capitol Hill',20, 38, 2.3);
+var storeAlki = new CookieStore('alki', 'Alki', 2, 16, 4.6);
+
 function CookieStore(name, displayName, minCustomers, maxCustomers, avgCookies){
   this.name = name;
   this.displayName = displayName;
@@ -13,12 +19,6 @@ function CookieStore(name, displayName, minCustomers, maxCustomers, avgCookies){
 CookieStore.prototype.salesPerHour = function(){
   return Math.floor(Math.random() * ((this.range + 1) + this.minCustomers) * this.avgCookies);
 };
-
-var storeOne = new CookieStore('first-and-pike', 'First and Pike', 23, 65, 6.3);
-var storeSeaTac = new CookieStore('seatac-airport', 'Seatac Airport', 3, 24, 1.2);
-var storeSeattle = new CookieStore('seattle-center', 'Seattle Center', 11, 38, 3.7);
-var storeCapitol = new CookieStore('capitol-hill', 'Capitol Hill',20, 38, 2.3);
-var storeAlki = new CookieStore('alki', 'Alki', 2, 16, 4.6);
 
 //stores Array
 var stores = [storeOne, storeSeaTac, storeSeattle, storeCapitol, storeAlki];
@@ -50,8 +50,6 @@ for(var j = 0; j < stores.length; j++){
   storeSection.appendChild(storeHours);
 }
 
-//var stores = []
-
 var tableEl = document.createElement('table'); //tableEl = <table></table>
 
 for(var i = 0; i < stores.length; i++){
@@ -78,3 +76,5 @@ for(var i = 0; i < stores.length; i++){
 }
 
 document.body.appendChild(tableEl);
+
+//createElement('td',);
