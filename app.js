@@ -1,6 +1,6 @@
 'use strict';
 //store hours
-var openHours = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var table = document.createElement('table'); //tableEl = <table></table> in HTML
 document.body.appendChild(table);
@@ -37,9 +37,9 @@ CookieStore.prototype.makeRow = function() {
   var storeRow = document.createElement('tr');
   table.appendChild(storeRow);
 
-  var storeName = document.createElement('td');
+  var storeName = document.createElement('th');
   storeRow.appendChild(storeName);
-  storeName.textContent = this.name;
+  storeName.textContent = this.displayName;
 
   for (var i = 0; i < this.hourlyCount.length; i++) {
     var hourlyCookieCount = document.createElement('td');
@@ -47,6 +47,18 @@ CookieStore.prototype.makeRow = function() {
     hourlyCookieCount.textContent = this.hourlyCount[i];
   }
 };
+function displayTimes(){
+  for (var ii = 0; ii < openHours.length; ii++){
+    var timeOfDay = document.createElement('th');
+    timeOfDay.textContent = openHours[ii];
+    table.appendChild(timeOfDay);
+  }
+}
+
+var locations = 'Locations:';
+var totalHead = document.createElement('th');
+totalHead.textContent = locations;
+table.appendChild(totalHead);
 
 function populateStoreCount() {
   for (var i = 0; i < stores.length; i++){
@@ -59,8 +71,10 @@ function makeAllRows() {
     stores[i].makeRow();
   }
 }
-makeAllRows();
+
+displayTimes();
 populateStoreCount();
+makeAllRows();
 
 
 
