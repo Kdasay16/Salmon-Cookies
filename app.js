@@ -1,6 +1,6 @@
 'use strict';
 //store hours
-var openHours = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var table = document.createElement('table'); //tableEl = <table></table> in HTML
 document.body.appendChild(table);
@@ -39,7 +39,7 @@ CookieStore.prototype.makeRow = function() {
 
   var storeName = document.createElement('td');
   storeRow.appendChild(storeName);
-  storeName.textContent = this.name;
+  storeName.textContent = this.displayName;
 
   for (var i = 0; i < this.hourlyCount.length; i++) {
     var hourlyCookieCount = document.createElement('td');
@@ -59,8 +59,8 @@ function makeAllRows() {
     stores[i].makeRow();
   }
 }
-makeAllRows();
 populateStoreCount();
+makeAllRows();
 
 
 
@@ -125,31 +125,31 @@ populateStoreCount();
 // }
 //
 //
-// //event listeners
-//
-// var storeFormEl = document.getElementById('new-store-form');
-//
-// storeFormEl.addEventListener('submit', handleSubmit); //an event listener just waiting to be fired. Will not fire unless clicked
-//
-// function handleSubmit(event){
-//   event.preventDefault(); //prevented page from reloading after they hit submit, prevents all default behavior for submit
-//   event.stopPropagation(); //makes sure that this event will not fire off in parent??
-//
-//   var storeName = event.target.cookieStoreName.value; // target is overarching node, cookieStoreName is the nested node, value will give you the value
-//   var minCust = parseInt(event.target.minCustomers.value); // target = storeFormEl, cookieStoreName is the input field, value = text givin
-//   var maxCust = parseInt(event.target.maxCustomers.value);
-//   var avgCookies = (event.target.avgCookies.value);
-//
-//   // console.log(storeName);
-//   // console.log(minCust);
-//   // console.log(maxCust);
-//   // console.log(avgCookies);
-//   var store = new CookieStore(name, minCust, maxCust, avgCookies);
-//
-//   stores.push(store);
-//
-//   console.log(storeName);
-//   console.log(store.getAvgCookieCount());
-//
-//   console.log('User Pressed Submit Button On Form!');
-// }
+//event listeners
+
+var storeFormEl = document.getElementById('new-store-form');
+
+storeFormEl.addEventListener('submit', handleSubmit); //an event listener just waiting to be fired. Will not fire unless clicked
+
+function handleSubmit(event){
+  event.preventDefault(); //prevented page from reloading after they hit submit, prevents all default behavior for submit
+  event.stopPropagation(); //makes sure that this event will not fire off in parent??
+
+  var storeName = event.target.cookieStoreName.value; // target is overarching node, cookieStoreName is the nested node, value will give you the value
+  var minCust = parseInt(event.target.minCustomers.value); // target = storeFormEl, cookieStoreName is the input field, value = text givin
+  var maxCust = parseInt(event.target.maxCustomers.value);
+  var avgCookies = (event.target.avgCookies.value);
+
+  // console.log(storeName);
+  // console.log(minCust);
+  // console.log(maxCust);
+  // console.log(avgCookies);
+  var store = new CookieStore(name, minCust, maxCust, avgCookies);
+
+  stores.push(store);
+
+  console.log(storeName);
+  console.log(store.populateHourlyCount());
+
+  console.log('User Pressed Submit Button On Form!');
+}
