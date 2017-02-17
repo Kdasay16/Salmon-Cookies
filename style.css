@@ -8,8 +8,8 @@ body {
     border:0px;
     font-size: 40px;
     padding: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0;
+    margin-left: 0;
   }
   #title {
     font-style: italic;
@@ -19,9 +19,19 @@ body {
   }
 nav li {
   display: inline-block;
-  text-align: auto;
+  text-align: center;
   margin: 25px;
   font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  length: 100%;
+}
+nav ul {
+  text-align: center;
+  length: 100%;
+  border: 0;
+  background-color: lightgrey;
+  top: 0;
 }
 label, input {
   display: block;
@@ -29,4 +39,17 @@ label, input {
 #new-store-form{
   width: 50%;
   margin:auto;
+  float: left;
 }
+fieldset {
+    border-radius: 10px;
+}
+td {
+  /*border-top: 2px solid black;*/
+  border-bottom: 2px solid black;
+  }
+/*button {
+  color: #444444;
+  background-color: #b9e4e3
+  text-align: right;
+}*/
