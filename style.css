@@ -1,15 +1,19 @@
 body {
-  background-color: antiquewhite;
+  background-color: #3D4757;
+}
+h1 {
+  color: black;
+  background-color: #ED6964;
+  length: 100%;
 }
   .top {
-    color: black;
-    background-color: pink;
+    color: white;
+    background-color: #3D4757;
     text-align: center;
     border:0px;
     font-size: 40px;
-    padding: 10px;
-    margin-right: 0;
-    margin-left: 0;
+    /*margin-right: 100px;
+    margin-left: 100px;*/
   }
   #title {
     font-style: italic;
@@ -28,28 +32,36 @@ nav li {
 }
 nav ul {
   text-align: center;
-  length: 100%;
+  margin-left: 100px;
+  margin-right: 100px;
   border: 0;
-  background-color: lightgrey;
+  background-color: #FAC56C;
   top: 0;
 }
 label, input {
   display: block;
 }
 #new-store-form{
-  width: 50%;
-  margin:auto;
-  float: left;
+  width: 500px;
 }
+button {
+    color: #444444;
+    text-align: right;
+    margin-left: 80%;
+  }
 fieldset {
     border-radius: 10px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    background-color: #D8D8D8;
 }
 td {
-  /*border-top: 2px solid black;*/
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
+  border-spacing: 10px;
+  text-align: center;
+  background-color: #D8D8D8;
   }
-/*button {
-  color: #444444;
-  background-color: #b9e4e3
-  text-align: right;
-}*/
+thead {
+  border-bottom: 2px solid black;
+  background-color: #D8D8D8;
+}

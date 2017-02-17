@@ -11,11 +11,6 @@ table.appendChild(header);
 var headRow = document.createElement('tr');
 header.appendChild(headRow);
 
-var hoursHead = document.createElement('th');
-header.textContent = 'Hours Open';
-header.appendChild(hoursHead);
-
-
 var storeOne = new CookieStore('First and Pike', 23, 65, 6.3);
 var storeSeaTac = new CookieStore('Seatac Airport', 3, 24, 1.2);
 var storeSeattle = new CookieStore('Seattle Center', 11, 38, 3.7);
@@ -66,20 +61,25 @@ CookieStore.prototype.makeRow = function() {
   var total = document.createElement('td');
   storeRow.appendChild(total);
   total.textContent = this.totalStoreSales;
+
 };
+function hoursHeader() {
+  var hoursHead = document.createElement('th');
+  hoursHead.textContent = 'Hours Open';
+  header.appendChild(hoursHead);
 
-for (var k = 0; k < openHours.length; k++){
-  var loopHead = document.createElement('th');
-  loopHead.textContent = openHours[k];
-  headRow.appendChild(loopHead);
+  for (var k = 0; k < openHours.length; k++){
+    var loopHead = document.createElement('th');
+    loopHead.textContent = openHours[k];
+    header.appendChild(loopHead);
+  }
 }
-
+hoursHeader();
 function hourlyTotals() {
   var footer = document.createElement('tfoot');
   var totalName = document.createElement('td');
   footer.appendChild(totalName);
   totalName.textContent = 'Hourly Totals';
-  //footer.appendChild(totalName);
   var totalHourlySales = [];
 
   for (var i = 0; i < openHours.length; i++) {
@@ -93,21 +93,6 @@ function hourlyTotals() {
   }
   table.appendChild(footer);
 }
-
-//
-//   for (var i = 0; i < openHours.length; i++) {
-//     var hourlyTotal = 0;
-//     for (var j = 0; j < stores.length; j++){
-//       hourlyTotal += stores[j].hourlyCount[i];
-//     }
-//     var hourlyTotalTd = document.createElement('td');
-//     footer.appendChild(hourlyTotalTd);
-//     hourlyTotalTd.textContent = hourlyTotal;
-//   }
-//   table.appendChild(footer);
-// }
-
-
 
 function populateStoreCount() {
   for (var i = 0; i < stores.length; i++){
