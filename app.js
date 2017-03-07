@@ -49,7 +49,7 @@ CookieStore.prototype.makeRow = function() {
   var storeRow = document.createElement('tr');
   table.appendChild(storeRow);
 
-  var storeName = document.createElement('td');
+  var storeName = document.createElement('th');
   storeRow.appendChild(storeName);
   storeName.textContent = this.displayName;
 
@@ -63,6 +63,7 @@ CookieStore.prototype.makeRow = function() {
   total.textContent = this.totalStoreSales;
 
 };
+
 function hoursHeader() {
   var hoursHead = document.createElement('th');
   hoursHead.textContent = 'Hours Open';
@@ -93,6 +94,19 @@ function hourlyTotals() {
   }
   table.appendChild(footer);
 }
+//master
+function displayTimes(){
+  for (var ii = 0; ii < openHours.length; ii++){
+    var timeOfDay = document.createElement('th');
+    timeOfDay.textContent = openHours[ii];
+    table.appendChild(timeOfDay);
+  }
+}
+
+var locations = 'Locations:';
+var totalHead = document.createElement('th');
+totalHead.textContent = locations;
+table.appendChild(totalHead);
 
 function populateStoreCount() {
   for (var i = 0; i < stores.length; i++){
@@ -105,10 +119,12 @@ function makeAllRows() {
     stores[i].makeRow();
   }
 }
+
 populateStoreCount();
 makeAllRows();
 hourlyTotals();
 //event listeners
+displayTimes();
 
 var storeFormEl = document.getElementById('new-store-form');
 
